@@ -1,0 +1,5 @@
+# Ignore PWA specific files from being pushed to Google Apps Script
+manifest.json
+sw.js
+.git/**
+node_modules/**

@@ -1,0 +1,156 @@
+<style>
+  /* ==========================================================================
+     QYONA DESIGN SYSTEM v2.5 — Mobile-First PWA & Modern Fintech Theme
+     Tailwind CSS Extended Utilities, iOS Safe Areas, and Glassmorphism
+     ========================================================================== */
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+  :root {
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --emerald-50: #ecfdf5;
+    --emerald-100: #d1fae5;
+    --emerald-500: #10b981;
+    --emerald-600: #059669;
+    --teal-600: #0d9488;
+    --teal-700: #0f766e;
+    --teal-800: #115e59;
+    --orange-cat: #f97316;
+    --blue-cat: #3b82f6;
+    --purple-cat: #a855f7;
+    --red-alert: #ef4444;
+  }
+
+  html, body {
+    font-family: var(--font-main);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Safe Area Inset Helpers for iOS & PWA Notch / Dynamic Island */
+  .pt-safe {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+  }
+  .pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+  .pb-nav-safe {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+
+  /* Custom Desktop Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.35);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(13, 148, 136, 0.6);
+  }
+
+  /* Utility: Hide Scrollbar on Horizontal Carousel / Prompt Chips */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Glassmorphism & Modern Fintech Gradients */
+  .qyona-gradient {
+    background: linear-gradient(135deg, #0f766e 0%, #059669 55%, #10b981 100%);
+  }
+  .qyona-gradient-purple {
+    background: linear-gradient(135deg, #7e22ce 0%, #9333ea 55%, #a855f7 100%);
+  }
+
+  .qyona-login-bg {
+    background: radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(13, 148, 136, 0.14) 0%, transparent 50%);
+  }
+
+  .glass-header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .dark .glass-header {
+    background: rgba(15, 23, 42, 0.92);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .dark .glass-nav {
+    background: rgba(15, 23, 42, 0.94);
+  }
+
+  /* Chat Bubbles */
+  .chat-bubble-user {
+    background: linear-gradient(135deg, #0d9488 0%, #059669 100%);
+    color: #ffffff;
+    border-radius: 20px 20px 4px 20px;
+  }
+  .chat-bubble-bot {
+    border-radius: 20px 20px 20px 4px;
+  }
+
+  /* Voice Recording Pulse Ring */
+  @keyframes pulseRing {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  }
+  .mic-recording {
+    animation: pulseRing 1.5s infinite;
+    background-color: #ef4444 !important;
+    color: #ffffff !important;
+  }
+
+  /* Smooth Fade & Slide In Animations */
+  @keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeInSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Mobile Native Bottom-Sheet Slide Up Animation */
+  @keyframes bottomSheetSlideUp {
+    from { opacity: 0; transform: translateY(100%); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 640px) {
+    .modal-sheet-content {
+      animation: bottomSheetSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+
+  /* Budget Progress Bar Smooth Transition */
+  .progress-fill {
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Enforce touch friendliness on mobile inputs (prevents iOS Safari auto-zoom) */
+  @media screen and (max-width: 768px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+</style>
