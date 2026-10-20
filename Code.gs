@@ -54,7 +54,12 @@ function doGet(e) {
     }
   }
 
-  const template = HtmlService.createTemplateFromFile('Index');
+  let template;
+  try {
+    template = HtmlService.createTemplateFromFile('index');
+  } catch (_e) {
+    template = HtmlService.createTemplateFromFile('Index');
+  }
   template.initialInviteCode = getConfig('FAMILY_INVITE_CODE', 'QYONA-2026');
   return template.evaluate()
     .setTitle('Qyona — Catatan Keuangan Rumah Tangga')

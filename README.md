@@ -76,12 +76,14 @@
 ```
 .
 ├── Code.gs             # Backend Google Apps Script (Engine Database, AI Chatbot, RPC API)
-├── Index.html          # Frontend Utama (Single-File Web App & PWA Interface)
+├── index.html          # Frontend Utama (Single-File Web App & GitHub Pages PWA Interface)
 ├── JavaScript.html     # Frontend Controller, Event Handlers, Chart.js & Local Emulator
 ├── Stylesheet.html     # Custom Theme, Animasi, Glassmorphism & Safe Area CSS
 ├── appsscript.json     # Konfigurasi Manifest Google Apps Script (OAuth Scopes, V8 Engine)
 ├── manifest.json       # Web App Manifest untuk instalasi PWA
 ├── sw.js               # Service Worker untuk caching offline ringan
+├── .nojekyll           # Mencegah GitHub Pages memproses Jekyll (menghindari error 404)
+├── 404.html            # Redirect fallback GitHub Pages ke root index.html
 ├── .clasp.json         # Konfigurasi Google Clasp untuk sinkronisasi repository
 └── README.md           # Dokumentasi resmi proyek
 ```
@@ -90,7 +92,42 @@
 
 ## 🚀 Panduan Instalasi & Deployment
 
-### Cara 1: Menggunakan Google Clasp (Direkomendasikan untuk Developer)
+### Cara 1: Akses Langsung via GitHub Pages (PWA Instant)
+
+1. Buka repositori Anda di GitHub: `https://github.com/mandalaprojek/Catatan-Keuangan-Rumah_Qyona`.
+2. Klik tab **Settings** > menu sebelah kiri pilih **Pages**.
+3. Pada bagian **Build and deployment**:
+   * **Source**: Pilih `Deploy from a branch`
+   * **Branch**: Pilih `main` dan folder `/(root)`
+   * Klik **Save**.
+4. Tunggu 1–2 menit, tautan website Anda akan aktif di:
+   👉 **`https://mandalaprojek.github.io/Catatan-Keuangan-Rumah_Qyona/`**
+
+---
+
+### Cara 2: Menghubungkan ke Google Spreadsheet & Apps Script (Database Pribadi)
+
+1. **Buka Google Spreadsheet baru:**
+   Beri nama spreadsheet Anda, misalnya `Database Qyona Keuangan`.
+2. **Buka Apps Script:**
+   Klik menu **Ekstensi (Extensions)** > **Apps Script**.
+3. **Buat berkas-berkas berikut di editor Apps Script:**
+   * `Code.gs` ➔ Salin seluruh isi berkas `Code.gs`.
+   * `index.html` ➔ Salin seluruh isi berkas `index.html`.
+   * `JavaScript.html` ➔ Salin seluruh isi berkas `JavaScript.html`.
+   * `Stylesheet.html` ➔ Salin seluruh isi berkas `Stylesheet.html`.
+   * `appsscript.json` ➔ Klik ikon roda gigi (Project Settings) > centang *Show "appsscript.json" manifest file in editor*, lalu salin isi berkas `appsscript.json`.
+4. **Deploy Web App:**
+   * Klik tombol **Deploy** di kanan atas > **New deployment**.
+   * Pilih tipe: **Web app**.
+   * Isi konfigurasi:
+     - **Execute as:** `Me (email Anda)`
+     - **Who has access:** `Anyone` (atau `Anyone with Google account`)
+   * Klik **Deploy**, lalu salin URL Web App yang dihasilkan.
+
+---
+
+### Cara 3: Menggunakan Google Clasp (Untuk Developer)
 
 1. **Clone repository ini:**
    ```bash
@@ -113,28 +150,6 @@
    ```bash
    npx @google/clasp push --force
    ```
-
----
-
-### Cara 2: Salin Manual ke Google Spreadsheet
-
-1. **Buka Google Spreadsheet baru:**
-   Beri nama spreadsheet Anda, misalnya `Database Qyona Keuangan`.
-2. **Buka Apps Script:**
-   Klik menu **Ekstensi (Extensions)** > **Apps Script**.
-3. **Buat file-file berikut di editor Apps Script:**
-   * `Code.gs` ➔ Salin seluruh isi berkas `Code.gs`.
-   * `Index.html` ➔ Salin seluruh isi berkas `Index.html`.
-   * `JavaScript.html` ➔ Salin seluruh isi berkas `JavaScript.html`.
-   * `Stylesheet.html` ➔ Salin seluruh isi berkas `Stylesheet.html`.
-   * `appsscript.json` ➔ Klik ikon roda gigi (Project Settings) > centang *Show "appsscript.json" manifest file in editor*, lalu salin isi berkas `appsscript.json`.
-4. **Deploy Web App:**
-   * Klik tombol **Deploy** di kanan atas > **New deployment**.
-   * Pilih tipe: **Web app**.
-   * Isi konfigurasi:
-     - **Execute as:** `Me (email Anda)`
-     - **Who has access:** `Anyone` (atau `Anyone with Google account`)
-   * Klik **Deploy**, lalu salin URL Web App yang dihasilkan.
 
 ---
 

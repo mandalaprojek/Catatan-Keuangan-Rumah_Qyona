@@ -2,7 +2,7 @@
 const CACHE_NAME = 'qyona-pwa-cache-v1';
 const ASSETS_TO_CACHE = [
   './',
-  './Index.html',
+  './index.html',
   './manifest.json',
   'https://cdn.tailwindcss.com',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
